@@ -3,6 +3,7 @@
 var React = require('react-native');
 var CamList = require('./CamList')
 var CamView = require('./CamView');
+var Favourites = require('./FavouritesTab');
 
 
 var {
@@ -10,8 +11,6 @@ var {
   Text,
   NavigatorIOS,
   View,
-  Image,
-  TouchableHighlight,
   ScrollView
 } = React;
 
@@ -46,7 +45,7 @@ var styles = StyleSheet.create({
   moreDetails: {
     height: 30,
     width: 30,
-    backgroundColor: '#c51162',  
+    backgroundColor: '#c51162',
   }
 });
 
@@ -57,7 +56,7 @@ var styles = StyleSheet.create({
 var thumbnail = 'http://images.forbes.com/media/2013/07/16/0716_bruce-wayne_197x282.jpg'
 class Main extends React.Component {
   constructor (props) {
-    super(props) 
+    super(props)
     this.state = {
       cams: '',
       isLoading: false,
