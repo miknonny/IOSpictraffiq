@@ -1,20 +1,24 @@
 'use strict';
 
 var React = require('react-native');
+var CamList = require('./CamList')
+var CamView = require('./CamView');
+
 
 var {
   StyleSheet,
   Text,
   NavigatorIOS,
   View,
-  Image
+  Image,
+  TouchableHighlight,
+  ScrollView
 } = React;
 
 var styles = StyleSheet.create({
   listView: {
     flex: 1,
     flexDirection: 'column',
-    marginTop: 65,
     backgroundColor: '#e3f2fd'
   },
   box: {
@@ -42,7 +46,8 @@ var styles = StyleSheet.create({
   moreDetails: {
     height: 30,
     width: 30,
-    backgroundColor: '#c51162',  }
+    backgroundColor: '#c51162',  
+  }
 });
 
 /**
@@ -59,45 +64,15 @@ class Main extends React.Component {
       error: false
     }
   }
-  render () {
-    return (
-      <View style={styles.listView}>
-        <View style={styles.camContainer}>
-          <Image 
-            source={{uri: thumbnail}}
-            style={styles.thumbnail}
-          />
-          <View style={styles.box}>
-            <Text> 
-              Onipan Road
-            </Text>
-            <Text>
-              last updated 3mins ago.
-            </Text>
-          </View>
-          <View style={styles.moreDetails}>
-            <Text>D</Text>
-          </View>
 
-        </View>
-        <View style={styles.camContainer}>
-          <Image 
-            source={{uri: thumbnail}}
-            style={styles.thumbnail}
-          />
-          <View style={styles.box}>
-            <Text>
-              Ikorodu by anthony 
-            </Text>
-            <Text>
-              last updated 2 minutes ago
-            </Text>
-          </View>
-          <View style={styles.moreDetails}>
-            <Text>D</Text>
-          </View>
-        </View>
-      </View>
+  render () {
+    console.log(this.props.navigator)
+    return (
+      <ScrollView style={styles.listView}>
+        <CamList
+          navigator={this.props.navigator}
+        />
+      </ScrollView>
     );
   }
 }
