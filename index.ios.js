@@ -5,14 +5,13 @@
 'use strict';
 
 var React = require('react-native');
-var Main = require('./App/Components/Main')
+var Main = require('./App/Components/Main');
 
 var {
   AppRegistry,
   StyleSheet,
   Text,
-  NavigatorIOS,
-  View,
+  TabBarIOS,
 } = React;
 
 var styles = StyleSheet.create({
@@ -26,16 +25,17 @@ var styles = StyleSheet.create({
  * Navigate to MAIN(Cams) page.
  */
 class IOSpictraffiq extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedTab: 'camlist'
+    };
+  }
   render () {
-    return ( 
-        <NavigatorIOS 
-          style={styles.container}
-          initialRoute={{
-            title: 'CAMS',
-            component: Main
-          }}
-        />
-    );  
+    return (
+      <Main />
+    );
   }
 }
 

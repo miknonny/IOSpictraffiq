@@ -1,79 +1,58 @@
 'use strict';
 
 var React = require('react-native');
-var CamList = require('./CamList')
-var CamView = require('./CamView');
-var Favourites = require('./FavouritesTab');
+var CamListTab = require('./CamListTab');
+var FavouritesTab = require('./FavouritesTab');
 
 
 var {
   StyleSheet,
-  Text,
-  NavigatorIOS,
-  View,
-  ScrollView
+  TabBarIOS
 } = React;
 
 var styles = StyleSheet.create({
-  listView: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#e3f2fd'
-  },
-  box: {
-    flex: 1,
-    height: 40,
-    width: 200,
-    backgroundColor: '#90caf9',
-    alignItems: 'flex-start'
-  },
-  // #c51162 highlighter
-  camContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#bbdefb',
-    height: 100,
-    marginLeft: 10,
-    marginBottom: 5
-  },
-  thumbnail: {
-    height: 80,
-    width: 110,
-    marginLeft: 5,
-    marginRight: 5
-  },
-  moreDetails: {
-    height: 30,
-    width: 30,
-    backgroundColor: '#c51162',
-  }
+
 });
 
-/**
- * Returns a list of all cams.
- */
 
-var thumbnail = 'http://images.forbes.com/media/2013/07/16/0716_bruce-wayne_197x282.jpg'
 class Main extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
-      cams: '',
-      isLoading: false,
-      error: false
-    }
+      selectedTab: 'camlist'
+    };
   }
 
   render () {
-    console.log(this.props.navigator)
     return (
-      <ScrollView style={styles.listView}>
-        <CamList
-          navigator={this.props.navigator}
-        />
-      </ScrollView>
+      // When using system icon title is overidden by the system icon title.
+      <TabBarIOS selectedTab={this.state.selectedTab}>
+        <TabBarIOS.Item
+          selected={this.state.selectedTab === 'camlist'}
+          icon={{uri: 'contacts'}}
+          title={'Cams'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'camlist'
+            });
+          }} >
+            <CamListTab navigator={this.props.navigator}/>
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          selected={this.state.selectedTab === 'favourites'}
+          icon={{uri: 'favorites'}}
+          title={'Favourites'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'favourites'
+            });
+          }} >
+            <FavouritesTab />
+        </TabBarIOS.Item>
+      </TabBarIOS>
     );
   }
 }
+
 
 module.exports = Main;

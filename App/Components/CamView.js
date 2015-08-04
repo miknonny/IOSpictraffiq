@@ -1,7 +1,6 @@
 'use strict';
 
-var React = require('react-native')
-var CamList = require('./CamList');
+var React = require('react-native');
 
 var {
   StyleSheet,
@@ -22,7 +21,8 @@ var styles = StyleSheet.create({
     height: 250,
     backgroundColor: '#212121'
   },
-})
+});
+
 
 class CamView extends React.Component {
   render () {
@@ -35,7 +35,7 @@ class CamView extends React.Component {
           <Text>Do an analysis of traffic here, ask users for feedback on current status of traffic.</Text>
         </ScrollView>
       </View>
-    )
+    );
   }
 }
 

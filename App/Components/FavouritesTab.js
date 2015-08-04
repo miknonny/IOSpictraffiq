@@ -2,22 +2,23 @@
 
 var React = require('react-native');
 
+
 var {
-  Text, 
+  Text,
   View,
+  ScrollView,
   StyleSheet
 } = React;
 
 class FavouritesTab extends React.Component {
   render () {
     return (
-      <View>
-        <Text>Favurites Page</Text>
-      </View>
-    )
+      <ScrollView>
+        <Text>Favourites Page</Text>
+      </ScrollView>
+    );
   }
 }
-
 
 var styles = StyleSheet.create({
 

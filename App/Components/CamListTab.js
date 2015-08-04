@@ -1,14 +1,13 @@
 'use strict';
 var React = require('react-native');
-// var CamView = require('./CamView');
 
 var {
   View,
   Text,
-  ScrollView,
   TouchableHighlight,
   Image,
-  StyleSheet
+  StyleSheet,
+  ScrollView
 } = React;
 
 var styles = StyleSheet.create({
@@ -42,52 +41,53 @@ var styles = StyleSheet.create({
   moreDetails: {
     height: 30,
     width: 30,
-    backgroundColor: '#c51162',  
+    backgroundColor: '#c51162',
   }
-})
+});
 
 var thumbnail = 'http://images.forbes.com/media/2013/07/16/0716_bruce-wayne_197x282.jpg';
 
-class CamList extends React.Component {
+class CamListTab extends React.Component {
   goToCamView () {
     var CamView = require('./CamView');
     this.props.navigator.push({
       title: 'Cam View',
       component: CamView,
       passProps: {}
-    })
+    });
   }
   render () {
-    console.log(this.props.navigator);
     return (
-      <View style={styles.camContainer}>
-        <TouchableHighlight
-          underlayColor='#e3f2fd'
-          onPress={this.goToCamView.bind(this)}
-          >
-          <Image 
-            source={{uri: thumbnail}}
-            style={styles.thumbnail}
-          />
-        </TouchableHighlight>
-        <View style={styles.box}>
-          <Text> 
-            Onipan Road
-          </Text>
-          <Text>
-            last updated 3mins ago.
-          </Text>
+      <ScrollView style={styles.listView}>
+        <View style={styles.camContainer}>
+          <TouchableHighlight
+            underlayColor='#e3f2fd'
+            onPress={this.goToCamView.bind(this)}
+            >
+            <Image
+              source={{uri: thumbnail}}
+              style={styles.thumbnail}
+            />
+          </TouchableHighlight>
+          <View style={styles.box}>
+            <Text>
+              Onipan Road
+            </Text>
+            <Text>
+              last updated 3mins ago.
+            </Text>
+          </View>
+          <View style={styles.moreDetails}>
+            <Text>D</Text>
+          </View>
         </View>
-        <View style={styles.moreDetails}>
-          <Text>D</Text>
-        </View>
-      </View>
-    )
+      </ScrollView>
+    );
   }
 }
 
-CamList.propTypes = {
+CamListTab.propTypes = {
   navigator: React.PropTypes.object.isRequired
-}
+};
 
-module.exports = CamList;
+module.exports = CamListTab;
