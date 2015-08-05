@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react-native');
-
+var {Icon, } = require('react-native-icons');
 
 var {
   Text,
@@ -10,11 +10,16 @@ var {
   StyleSheet
 } = React;
 
+var BrandColors = {
+  Facebook: '#3b5998',
+  Twitter: '#55acee'
+};
+
 class FavouritesTab extends React.Component {
   render () {
     return (
       <ScrollView>
-        <Text>Favourites Page</Text>
+        <Text>Favourites here...</Text>
       </ScrollView>
     );
   }
