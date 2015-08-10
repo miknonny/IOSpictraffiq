@@ -1,26 +1,54 @@
 'use strict'
 var React = require('react-native');
+var Router = require('react-native-router');
 
 var {
   View,
   Text,
-  ScrollView
+  ScrollView,
+  TouchableHighlight
 } = React;
 
-class SettingsTab extends React.Component {
-  constructor(props) {
+class HelloPage extends React.Component {
+  constructor (props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
+  }
+  nextPage () {
+    this.props.toRoute({
+      name: "A new screen",
+      component: HelloPage
+    });
   }
   render () {
     return (
-      <ScrollView>
-        <Text>App settings here...</Text>
-      </ScrollView>
+      <TouchableHighlight
+        onPress={this.nextPage}
+        underlayColor="transparent">
+        <Text>Next page please!</Text>
+      </TouchableHighlight>
     );
   }
 }
 
+var firstRoute = {
+  name: 'Welcome',
+  component: HelloPage
+};
+
+// The Route wrapper
+
+
+
+class SettingsTab extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render () {
+    return (
+      <Router firstRoute={firstRoute} />
+    )
+  }
+}
 module.exports = SettingsTab;

@@ -1,5 +1,8 @@
 'use strict';
 var React = require('react-native');
+var CamList = require('./CamList');
+var SideBar = require('./SideBar');
+var Search = require('./Search');
 
 var {
   View,
@@ -47,41 +50,17 @@ var styles = StyleSheet.create({
 
 var thumbnail = 'http://images.forbes.com/media/2013/07/16/0716_bruce-wayne_197x282.jpg';
 
+var firstRoute = {
+  name: 'Cams',
+  component: CamList,
+  leftCorner: SideBar,
+  rightCorner: Search
+}
 class CamListTab extends React.Component {
-  goToCamView () {
-    var CamView = require('./CamView');
-    this.props.navigator.push({
-      title: 'Cam View',
-      component: CamView,
-      passProps: {}
-    });
-  }
+
   render () {
     return (
-      <ScrollView style={styles.listView}>
-        <View style={styles.camContainer}>
-          <TouchableHighlight
-            underlayColor='#e3f2fd'
-            onPress={this.goToCamView.bind(this)}
-            >
-            <Image
-              source={{uri: thumbnail}}
-              style={styles.thumbnail}
-            />
-          </TouchableHighlight>
-          <View style={styles.box}>
-            <Text>
-              Onipan Road
-            </Text>
-            <Text>
-              last updated 3mins ago.
-            </Text>
-          </View>
-          <View style={styles.moreDetails}>
-            <Text>D</Text>
-          </View>
-        </View>
-      </ScrollView>
+      <CamList />
     );
   }
 }
