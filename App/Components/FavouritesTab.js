@@ -1,6 +1,10 @@
 'use strict';
 
 var React = require('react-native');
+var Router = require('react-native-router');
+var FavouritesList = require('./FavouritesList');
+var AddFavourites = require('./AddFavourites');
+var SideBar = require('./SideBar');
 var {Icon, } = require('react-native-icons');
 
 var {
@@ -10,17 +14,17 @@ var {
   StyleSheet
 } = React;
 
-var BrandColors = {
-  Facebook: '#3b5998',
-  Twitter: '#55acee'
-};
+var firstRoute = {
+  name: 'Favourites',
+  component: FavouritesList,
+  rightCorner: AddFavourites,
+  leftCorner: SideBar
+}
 
 class FavouritesTab extends React.Component {
   render () {
     return (
-      <ScrollView>
-        <Text>Favourites here...</Text>
-      </ScrollView>
+      <Router firstRoute={firstRoute} />
     );
   }
 }
