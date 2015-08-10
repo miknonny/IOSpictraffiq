@@ -5,7 +5,6 @@ var Router = require('react-native-router');
 var FavouritesList = require('./FavouritesList');
 var AddFavourites = require('./AddFavourites');
 var SideBar = require('./SideBar');
-var {Icon, } = require('react-native-icons');
 
 var {
   Text,

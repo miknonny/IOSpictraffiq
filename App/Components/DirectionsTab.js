@@ -1,6 +1,9 @@
 'use strict';
 
 var React = require('react-native');
+var Router = require('react-native-router');
+var SideBar = require('./SideBar');
+var Directions = require('./Directions');
 
 var {
   View,
@@ -9,9 +12,12 @@ var {
   Text
 } = React;
 
-var styles = StyleSheet.create({
+var firstRoute = {
+  name: 'Directions',
+  component: Directions,
+  leftCorner: SideBar
+}
 
-});
 
 class DirectionsTab extends React.Component {
   constructor (props) {
@@ -22,11 +28,13 @@ class DirectionsTab extends React.Component {
   }
   render () {
     return (
-      <ScrollView>
-        <Text>Directions here...</Text>
-      </ScrollView>
+      <Router firstRoute={firstRoute} />
     );
   }
 }
+
+var styles = StyleSheet.create({
+
+});
 
 module.exports = DirectionsTab;

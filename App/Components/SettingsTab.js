@@ -14,12 +14,6 @@ class HelloPage extends React.Component {
     super(props);
     this.state = {};
   }
-  nextPage () {
-    this.props.toRoute({
-      name: "A new screen",
-      component: HelloPage
-    });
-  }
   render () {
     return (
       <TouchableHighlight
