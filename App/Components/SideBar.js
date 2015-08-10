@@ -1,4 +1,5 @@
 var React = require('react-native');
+var {Icon,} = require('react-native-icons');
 
 var {
   Text,
@@ -9,9 +10,22 @@ var {
 class SideBar extends React.Component {
   render () {
     return (
-      <Text>Side Bar</Text>
+      <Icon
+        name='ion|navicon'
+        size={30}
+        color='#ffffff'
+        style={styles.sideBarIcon}
+      />
     )
   }
 }
+
+
+var styles = StyleSheet.create({
+  sideBarIcon: {
+    width: 40,
+    height: 40
+  }
+})
 
 module.exports = SideBar;

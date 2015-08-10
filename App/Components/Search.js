@@ -1,4 +1,5 @@
 var React = require('react-native');
+var {Icon,} = require('react-native-icons');
 
 var {
   Text,
@@ -9,9 +10,20 @@ var {
 class Search extends React.Component {
   render () {
     return (
-      <Text>Search Implementation here.</Text>
+      <Icon
+        name='ion|ios-search'
+        size={30}
+        color='#ffffff'
+        style={styles.searchIcon}
+      />
     )
   }
 }
 
+var styles = StyleSheet.create({
+  searchIcon: {
+    width: 40,
+    height: 40
+  }
+})
 module.exports = Search;

@@ -49,7 +49,7 @@ class Main extends React.Component {
               selectedTab: 'camlist'
             });
           }} >
-            <CamListTab navigator={this.props.navigator}/>
+            <CamListTab />
         </TabBarItemIOS>
 
         <TabBarItemIOS
@@ -77,7 +77,7 @@ class Main extends React.Component {
           }} >
             <DirectionsTab />
         </TabBarItemIOS>
-        
+
         <TabBarItemIOS
           name="Settings"
           iconName={'ion|ios-gear-outline'}
