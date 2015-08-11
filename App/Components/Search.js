@@ -1,21 +1,43 @@
 var React = require('react-native');
 var {Icon,} = require('react-native-icons');
+var SearchBar = require('./SearchBar');
 
 var {
   Text,
   View,
-  StyleSheet
+  StyleSheet,
+  TouchableHighlight,
+  TextInput
 } = React;
 
-class Search extends React.Component {
+class SearchView extends React.Component {
   render () {
     return (
-      <Icon
-        name='ion|ios-search'
-        size={30}
-        color='#ffffff'
-        style={styles.searchIcon}
-      />
+      <Text>SearchView</Text>
+    )
+  }
+}
+
+class Search extends React.Component {
+  _goToSearchView () {
+    this.props.toRoute({
+      name: '',
+      component: SearchView,
+      titleComponent: SearchBar
+    })
+  }
+  render () {
+    return (
+      <TouchableHighlight
+        onPress={this._goToSearchView.bind(this)}
+        underlayColor='#7bdef9'>
+        <Icon
+          name='ion|ios-search'
+          size={30}
+          color='#ffffff'
+          style={styles.searchIcon}
+        />
+      </TouchableHighlight>
     )
   }
 }
@@ -26,4 +48,5 @@ var styles = StyleSheet.create({
     height: 40
   }
 })
+
 module.exports = Search;
