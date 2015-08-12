@@ -15,14 +15,16 @@ var {
 **/
 var thumbnail = 'http://images.forbes.com/media/2013/07/16/0716_bruce-wayne_197x282.jpg';
 class CamList extends React.Component {
-  // goToCamView() event ->onPress.
+  _goToCamView () {
+    console.log('go to cam view')
+  }
   render () {
     return (
       <ScrollView style={styles.listView}>
         <View style={styles.camContainer}>
           <TouchableHighlight
             underlayColor='#e3f2fd'
-            onPress={''}
+            onPress={this._goToCamView}
             >
             <Image
               source={{uri: thumbnail}}

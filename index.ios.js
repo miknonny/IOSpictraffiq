@@ -6,6 +6,8 @@
 
 var React = require('react-native');
 var Main = require('./App/Components/Main');
+var SideMenu = require('react-native-side-menu');
+var Menu = require('./App/Components/Menu');
 
 var {
   AppRegistry,
@@ -25,7 +27,6 @@ var styles = StyleSheet.create({
  * Navigate to MAIN(Cams) page.
  */
 class IOSpictraffiq extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -34,7 +35,13 @@ class IOSpictraffiq extends React.Component {
   }
   render () {
     return (
-      <Main />
+      <SideMenu
+        menu={<Menu navigator={navigator}/>}
+        animation={'spring'}
+        touchToClose={true}
+        >
+        <Main />
+      </SideMenu>
     );
   }
 }

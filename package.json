@@ -6,7 +6,9 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
+    "dimensions": "^0.1.0",
     "react-native": "^0.8.0",
-    "react-native-icons": "^0.3.3"
+    "react-native-icons": "^0.3.3",
+    "react-native-side-menu": "^0.9.5"
   }
 }

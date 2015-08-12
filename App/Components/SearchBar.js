@@ -12,6 +12,10 @@ var {
 } = React;
 
 class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render () {
     return (
       <TextInput style={styles.input}
