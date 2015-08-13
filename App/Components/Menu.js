@@ -6,7 +6,8 @@ var {
   View,
   Image,
   Text,
-  TouchableHighlight
+  TouchableHighlight,
+  Navigator
 } = React;
 
 var window = Dimensions.get('window');
@@ -14,24 +15,27 @@ var uri = 'http://pickaface.net/includes/themes/clean/img/slide2.png';
 
 class Menu extends React.Component {
   _signIn () {
-    console.log('sign in!');
+    this.props.menuActions.close();
+    console.log(this.props.navigator)
+    // this.props.navigator.push({...})
   }
   _settings () {
-    console.log('settings');
+    this.props.menuActions.close();
   }
   _subscribe () {
-    console.log('subscribe');
+    this.props.menuActions.close();
+    // this.props.navigator.push({...})
   }
   _feedbackReport () {
-    console.log('feedback and report page');
+    this.props.menuActions.close();
+    // this.props.navigator.push({...})
   }
 
   /**
   * this should be a blurred popup.
   **/
   _about () {
-    console.log(navigator);
-    console.log('About!')
+    this.props.menuActions.close()
   }
   render() {
     return (
@@ -42,30 +46,34 @@ class Menu extends React.Component {
             source={{ uri, }}/>
           <Text style={styles.name}>Mbah Michael</Text>
         </View>
+
         <TouchableHighlight
           underlayColor='#e3f2fd'
-          onPress={this._signIn}
-          >
+          onPress={this._signIn.bind(this)}>
           <Text style={styles.item}>SignIn/Signout</Text>
         </TouchableHighlight>
+
         <TouchableHighlight
           underlayColor='#e3f2fd'
-          onPress={this._settings} >
+          onPress={this._settings.bind(this)} >
             <Text style={styles.item}>Settings</Text>
         </TouchableHighlight>
+
         <TouchableHighlight
           underlayColor='#e3f2fd'
-          onPress={this._subscribe} >
+          onPress={this._subscribe.bind(this)} >
             <Text style={styles.item}>Subscribe(Premium)</Text>
         </TouchableHighlight>
+
         <TouchableHighlight
           underlayColor='#e3f2fd'
-          onPress={this._feedbackReport} >
+          onPress={this._feedbackReport.bind(this)} >
           <Text style={styles.item}>Feedback/Report A Problem</Text>
         </TouchableHighlight>
+
         <TouchableHighlight
           underlayColor='#e3f2fd'
-          onPress={this._about} >
+          onPress={this._about.bind(this)} >
           <Text style={styles.item}>About</Text>
         </TouchableHighlight>
       </ScrollView>
